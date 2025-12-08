@@ -29,16 +29,33 @@ sudo apt install ffmpeg
 ```
 
 **Windows:**
-[FFmpeg公式サイト](https://ffmpeg.org/download.html)からダウンロードしてインストールしてください。
+1. [FFmpeg公式サイト](https://ffmpeg.org/download.html)からWindows用のビルドをダウンロードします（[直接リンク: gyan.dev](https://www.gyan.dev/ffmpeg/builds/)）
+2. ダウンロードしたZIPファイルを解凍します
+3. 解凍したフォルダ内の`bin`フォルダのパス（例: `C:\ffmpeg\bin`）を環境変数`PATH`に追加します
+   - 「システムのプロパティ」→「環境変数」→「システム環境変数」の`Path`を編集
+   - 新しい行を追加して`bin`フォルダのパスを入力
+4. コマンドプロンプトまたはPowerShellを再起動し、`ffmpeg -version`でインストールを確認します
 
 ## インストール
 
 1. プロジェクトのディレクトリに移動します。
 
+   **macOS/Linux:**
+   ```bash
+   cd "YouTube Importer"
+   ```
+
+   **Windows:**
+   ```cmd
+   cd "YouTube Importer"
+   ```
+
 2. 依存パッケージをインストールします：
 ```bash
 pip install -r requirements.txt
 ```
+
+   **注意:** Windowsで`pip`コマンドが見つからない場合は、`python -m pip install -r requirements.txt`を使用してください。
 
 ## 使い方
 
@@ -60,15 +77,38 @@ YOUTUBE_URL = "https://www.youtube.com/watch?v=..."
 
 環境変数`YOUTUBE_URL`を設定します：
 
+**macOS/Linux:**
 ```bash
 export YOUTUBE_URL="https://www.youtube.com/watch?v=..."
+```
+
+**Windows (コマンドプロンプト):**
+```cmd
+set YOUTUBE_URL=https://www.youtube.com/watch?v=...
+```
+
+**Windows (PowerShell):**
+```powershell
+$env:YOUTUBE_URL="https://www.youtube.com/watch?v=..."
 ```
 
 環境変数が設定されている場合は、環境変数が優先されます。
 
 ### 2. スクリプトの実行
 
+**macOS/Linux:**
 ```bash
+python main.py
+```
+
+**Windows:**
+```cmd
+python main.py
+```
+
+または
+
+```powershell
 python main.py
 ```
 
@@ -107,6 +147,7 @@ YouTube Importer/
 - 初回実行時、Whisperモデル（`small`）のダウンロードに時間がかかります
 - 文字起こし結果は最大5件まで保持され、それ以上は古いファイルから自動削除されます
 - ダウンロードした音声ファイルは文字起こし完了後に自動削除されます
+- **Windowsの場合:** パスに日本語やスペースが含まれている場合、一部の処理で問題が発生する可能性があります。可能であれば、プロジェクトを英語名のフォルダに配置することを推奨します
 
 ### YouTubeのボット検出について
 
