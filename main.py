@@ -7,9 +7,19 @@ from youtube_downloader import download_audio_with_metadata
 from whisper_runner import transcribe_audio
 
 
-PROMPT_HEADER = """
+def get_prompt_header(num_videos: int) -> str:
+    """
+    動画数に応じたプロンプトヘッダーを生成する。
+    """
+    if num_videos > 1:
+        video_note = f"\n**重要: 以下の{num_videos}つの動画の文字起こしから、1つの統合されたブログ記事を作成してください。複数の動画の内容を関連付けながら、1つのまとまった記事として構成してください。**\n"
+    else:
+        video_note = ""
+    
+    return f"""
 ## 1. ブログ記事の生成
 以下の「【YouTubeの概要とその動画の文字起こし】」の内容に基づき、以下の「記事の仕様」を**全て厳守**して、SEOに強いブログ記事を生成してください。
+{video_note}
 なお、文字起こしの内容には誤認識や抜け漏れが含まれている可能性があります。そのため、必要に応じて内容を補完・要約しながら、自然で読みやすいブログ記事になるように構成してください。
 文字起こし自体の言語が日本語以外（例: 英語）であっても、最終的な記事は必ず自然な日本語で執筆してください。
 
@@ -72,47 +82,35 @@ PROMPT_HEADER = """
 # ここに文字起こししたいYouTubeのURLを設定してください。
 # 
 # 設定方法（優先順位順）:
-# 1. 環境変数 YOUTUBE_URL が設定されている場合はそちらを優先します
-# 2. 環境変数がない場合、以下の YOUTUBE_URL 変数に直接URLを設定してください
-#    例: YOUTUBE_URL = "https://www.youtube.com/watch?v=..."
+# 1. 環境変数 YOUTUBE_URL または YOUTUBE_URLS が設定されている場合はそちらを優先します
+#    - 複数のURLはカンマ区切りで指定できます
+#    - 例: export YOUTUBE_URLS='https://www.youtube.com/watch?v=...,https://www.youtube.com/watch?v=...'
+# 2. 環境変数がない場合、以下の YOUTUBE_URLS 変数に直接URLを設定してください
+#    - 1つのURLでもリスト形式で指定してください
+#    - 例: YOUTUBE_URLS = ["https://www.youtube.com/watch?v=..."]
+#    - 例: YOUTUBE_URLS = ["https://www.youtube.com/watch?v=...", "https://www.youtube.com/watch?v=..."]
 #
 # 注意: 一部の動画は特に制限されている可能性があります。別の動画で試してください。
 import os
 
-# ここに直接YouTubeのURLを設定できます
-# 環境変数 YOUTUBE_URL が設定されている場合はそちらが優先されます
+# ここに直接YouTubeのURLを設定できます（リスト形式）
+# 環境変数 YOUTUBE_URL または YOUTUBE_URLS が設定されている場合はそちらが優先されます
 # 環境変数がない場合、以下の変数に直接URLを設定してください:
-# 例: YOUTUBE_URL = "https://www.youtube.com/watch?v=..."
-YOUTUBE_URL = "https://www.youtube.com/watch?v=bPN84-mbZ2E"  # ここに直接URLを設定してください
+# 例: YOUTUBE_URLS = ["https://www.youtube.com/watch?v=..."]
+# 例: YOUTUBE_URLS = ["https://www.youtube.com/watch?v=...", "https://www.youtube.com/watch?v=..."]
+YOUTUBE_URLS = [
+    "https://www.youtube.com/watch?v=sEQRr9bvKEc",
+    "https://www.youtube.com/watch?v=e-Q580H4zgY"
+]  # ここに直接URLを設定してください（リスト形式）
 
 
-def run(url: str) -> None:
+def run(urls: list[str]) -> None:
+    """
+    複数のYouTube URLを処理して、1つのtranscriptファイルにまとめる。
+    """
     base_dir = Path(__file__).resolve().parent
     tmp_dir = base_dir / "tmp"
     tmp_dir.mkdir(exist_ok=True)
-
-    try:
-        audio_path, metadata = download_audio_with_metadata(url, tmp_dir)
-    except Exception as e:
-        print(f"[エラー] YouTubeのダウンロードに失敗しました: {e}")
-        return
-    title = metadata.get("title") or "(不明)"
-    uploader = metadata.get("uploader") or "(不明)"
-    duration = metadata.get("duration")
-    description = metadata.get("description") or "(概要なし)"
-
-    try:
-        text = transcribe_audio(audio_path)
-    except Exception as e:
-        import traceback
-        error_msg = f"[エラー] Whisperでの文字起こしに失敗しました: {e}\n{traceback.format_exc()}"
-        print(error_msg)
-        return
-    finally:
-        try:
-            audio_path.unlink(missing_ok=True)
-        except Exception:
-            pass
 
     # transcriptを最大5件まで保存（6件目以降は一番古いファイルを削除）
     transcripts_dir = base_dir / "transcripts"
@@ -132,39 +130,138 @@ def run(url: str) -> None:
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     out_path = transcripts_dir / f"transcript_{timestamp}.txt"
 
-    with out_path.open("w", encoding="utf-8") as f:
-        # 先頭にプロンプトとガイドライン
-        f.write(PROMPT_HEADER + "\n\n")
+    video_data_list = []
 
-        # メタ情報
-        f.write(f"タイトル: {title}\n")
-        f.write(f"チャンネル: {uploader}\n")
-        f.write(f"URL: {url}\n")
-        if duration is not None:
-            minutes = int(duration) // 60
-            seconds = int(duration) % 60
-            f.write(f"長さ: 約 {minutes} 分 {seconds} 秒\n")
-        f.write("\n--- 動画概要 ---\n")
-        f.write(f"{description}\n")
+    # 各URLを処理
+    for idx, url in enumerate(urls, 1):
+        print(f"[{idx}/{len(urls)}] 処理中: {url}")
+        
+        try:
+            audio_path, metadata = download_audio_with_metadata(url, tmp_dir)
+        except Exception as e:
+            print(f"[エラー] YouTubeのダウンロードに失敗しました: {e}")
+            continue
+        
+        title = metadata.get("title") or "(不明)"
+        uploader = metadata.get("uploader") or "(不明)"
+        duration = metadata.get("duration")
+        description = metadata.get("description") or "(概要なし)"
+
+        try:
+            text = transcribe_audio(audio_path)
+        except Exception as e:
+            import traceback
+            error_msg = f"[エラー] Whisperでの文字起こしに失敗しました: {e}\n{traceback.format_exc()}"
+            print(error_msg)
+            try:
+                audio_path.unlink(missing_ok=True)
+            except Exception:
+                pass
+            continue
+        finally:
+            try:
+                audio_path.unlink(missing_ok=True)
+            except Exception:
+                pass
+
+        video_data_list.append({
+            "title": title,
+            "uploader": uploader,
+            "url": url,
+            "duration": duration,
+            "description": description,
+            "transcript": text,
+        })
+        print(f"[{idx}/{len(urls)}] ✓ 完了")
+
+    if not video_data_list:
+        print("[エラー] 処理に成功した動画がありませんでした。")
+        return
+
+    # ファイルに書き込み
+    with out_path.open("w", encoding="utf-8") as f:
+        # 先頭にプロンプトとガイドライン（動画数に応じて変更）
+        prompt_header = get_prompt_header(len(video_data_list))
+        f.write(prompt_header + "\n\n")
+
+        # 各動画の情報を書き込み（タイトル、チャンネル、URL、長さ、概要）
+        for idx, video_data in enumerate(video_data_list, 1):
+            if len(video_data_list) > 1:
+                f.write(f"## 動画 {idx}/{len(video_data_list)}\n\n")
+            
+            f.write(f"タイトル: {video_data['title']}\n")
+            f.write(f"チャンネル: {video_data['uploader']}\n")
+            f.write(f"URL: {video_data['url']}\n")
+            if video_data['duration'] is not None:
+                minutes = int(video_data['duration']) // 60
+                seconds = int(video_data['duration']) % 60
+                f.write(f"長さ: 約 {minutes} 分 {seconds} 秒\n")
+            f.write("\n--- 動画概要 ---\n")
+            f.write(f"{video_data['description']}\n")
+            
+            if idx < len(video_data_list):
+                f.write("\n\n")
+
+        # 文字起こしセクションを1回だけ出力
         f.write("\n--- 文字起こし ---\n\n")
-        f.write(text)
+        
+        # 各動画の文字起こしを出力
+        for idx, video_data in enumerate(video_data_list, 1):
+            if len(video_data_list) > 1:
+                # 複数動画の場合
+                if idx == 1:
+                    f.write("【1つ目の動画】\n\n")
+                elif idx == 2:
+                    f.write("【2つ目の動画】\n\n")
+                elif idx == 3:
+                    f.write("【3つ目の動画】\n\n")
+                else:
+                    f.write(f"【{idx}つ目の動画】\n\n")
+            else:
+                # 1つの動画のみの場合
+                pass  # 見出しなし
+            
+            f.write(video_data['transcript'])
+            
+            if idx < len(video_data_list):
+                f.write("\n\n")
 
     # 最終的な成功メッセージのみを表示
     print(f"✓ 完了: transcripts ディレクトリに {out_path.name} を保存しました。")
+    print(f"   処理した動画数: {len(video_data_list)}/{len(urls)}")
 
 
 if __name__ == "__main__":
     # 環境変数から取得、なければ変数から取得
-    url = os.getenv("YOUTUBE_URL") or YOUTUBE_URL
+    urls_str = os.getenv("YOUTUBE_URLS") or os.getenv("YOUTUBE_URL")
     
-    if not url:
+    if urls_str:
+        # 環境変数から取得（カンマ区切りまたはスペース区切りで複数指定可能）
+        urls = [url.strip() for url in urls_str.replace(",", " ").split() if url.strip()]
+    else:
+        # 変数から取得
+        if isinstance(YOUTUBE_URLS, str):
+            # 文字列の場合、カンマ区切りまたはスペース区切りで分割
+            urls = [url.strip() for url in YOUTUBE_URLS.replace(",", " ").split() if url.strip()]
+        elif isinstance(YOUTUBE_URLS, list):
+            # リストの場合、そのまま使用
+            urls = YOUTUBE_URLS
+        else:
+            urls = []
+    
+    if not urls or len(urls) == 0:
         print("エラー: YouTube URLが設定されていません。")
         print("")
         print("設定方法:")
-        print("  1. 環境変数で設定: export YOUTUBE_URL='https://www.youtube.com/watch?v=...'")
-        print("  2. main.pyの YOUTUBE_URL 変数に直接URLを設定:")
-        print("     YOUTUBE_URL = \"https://www.youtube.com/watch?v=...\"")
+        print("  1. 環境変数で設定:")
+        print("     export YOUTUBE_URLS='https://www.youtube.com/watch?v=...,https://www.youtube.com/watch?v=...'")
+        print("     または")
+        print("     export YOUTUBE_URL='https://www.youtube.com/watch?v=...'")
+        print("  2. main.pyの YOUTUBE_URLS 変数に直接URLを設定:")
+        print("     リスト形式: YOUTUBE_URLS = [\"https://www.youtube.com/watch?v=...\", \"https://www.youtube.com/watch?v=...\"]")
+        print("     文字列形式: YOUTUBE_URLS = \"https://www.youtube.com/watch?v=..., https://www.youtube.com/watch?v=...\"")
         print("")
         exit(1)
-    run(url)
+    
+    run(urls)
 
