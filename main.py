@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import time
 from pathlib import Path
 from datetime import datetime
 
@@ -12,7 +13,7 @@ def get_prompt_header(num_videos: int) -> str:
     動画数に応じたプロンプトヘッダーを生成する。
     """
     if num_videos > 1:
-        video_note = f"\n**重要: 以下の{num_videos}つの動画の文字起こしから、1つの統合されたブログ記事を作成してください。複数の動画の内容を関連付けながら、1つのまとまった記事として構成してください。**\n"
+        video_note = f"\n**重要: 以下の{num_videos}つの動画の文字起こしから、1つの統合されたブログ記事を作成してください。複数の動画の内容を関連付けながら、1つのまとまった記事として構成してください。**\n\n**注意: 複数の動画はそれぞれ異なる言語で文字起こしされている可能性があります（例: 1つ目の動画が日本語、2つ目の動画が英語など）。各動画の文字起こしテキストの言語を適切に理解し、最終的な記事は必ず自然な日本語で執筆してください。**\n"
     else:
         video_note = ""
     
@@ -99,8 +100,8 @@ import os
 # 例: YOUTUBE_URLS = ["https://www.youtube.com/watch?v=..."]
 # 例: YOUTUBE_URLS = ["https://www.youtube.com/watch?v=...", "https://www.youtube.com/watch?v=..."]
 YOUTUBE_URLS = [
-    "https://www.youtube.com/watch?v=sEQRr9bvKEc",
-    "https://www.youtube.com/watch?v=e-Q580H4zgY"
+    "https://www.youtube.com/watch?v=T0ExPDCTAI0",
+    "https://www.youtube.com/watch?v=WbP9w3HRhso"
 ]  # ここに直接URLを設定してください（リスト形式）
 
 
@@ -136,10 +137,25 @@ def run(urls: list[str]) -> None:
     for idx, url in enumerate(urls, 1):
         print(f"[{idx}/{len(urls)}] 処理中: {url}")
         
+        # 複数動画の場合、前の動画処理後に待機時間を設ける（ボット検出回避）
+        if idx > 1:
+            wait_time = 3  # 3秒待機
+            print(f"     （ボット検出回避のため{wait_time}秒待機中...）")
+            time.sleep(wait_time)
+        
         try:
             audio_path, metadata = download_audio_with_metadata(url, tmp_dir)
         except Exception as e:
-            print(f"[エラー] YouTubeのダウンロードに失敗しました: {e}")
+            error_str = str(e)
+            # ボット検出エラーの場合、より分かりやすいメッセージを表示
+            if "bot" in error_str.lower() or "Sign in to confirm" in error_str:
+                print(f"[{idx}/{len(urls)}] ⚠️  エラー: この動画はボット検出によりダウンロードできませんでした")
+                print(f"     URL: {url}")
+                print(f"     対処法: 別の動画で試すか、しばらく時間をおいてから再試行してください")
+            else:
+                print(f"[{idx}/{len(urls)}] ⚠️  エラー: YouTubeのダウンロードに失敗しました")
+                print(f"     URL: {url}")
+                print(f"     詳細: {error_str[:200]}")  # 長いエラーメッセージは最初の200文字のみ
             continue
         
         title = metadata.get("title") or "(不明)"
@@ -148,11 +164,30 @@ def run(urls: list[str]) -> None:
         description = metadata.get("description") or "(概要なし)"
 
         try:
-            text = transcribe_audio(audio_path)
+            text, detected_language = transcribe_audio(audio_path)
+            # 言語コードを日本語名に変換
+            language_names = {
+                "ja": "日本語",
+                "en": "英語",
+                "ko": "韓国語",
+                "zh": "中国語",
+                "es": "スペイン語",
+                "fr": "フランス語",
+                "de": "ドイツ語",
+                "it": "イタリア語",
+                "pt": "ポルトガル語",
+                "ru": "ロシア語",
+                "ar": "アラビア語",
+                "hi": "ヒンディー語",
+                "th": "タイ語",
+                "vi": "ベトナム語",
+            }
+            language_display = language_names.get(detected_language, detected_language)
+            print(f"[{idx}/{len(urls)}] 検出言語: {language_display} ({detected_language})")
         except Exception as e:
             import traceback
-            error_msg = f"[エラー] Whisperでの文字起こしに失敗しました: {e}\n{traceback.format_exc()}"
-            print(error_msg)
+            print(f"[{idx}/{len(urls)}] ⚠️  エラー: Whisperでの文字起こしに失敗しました")
+            print(f"     詳細: {str(e)[:200]}")  # 長いエラーメッセージは最初の200文字のみ
             try:
                 audio_path.unlink(missing_ok=True)
             except Exception:
@@ -227,8 +262,11 @@ def run(urls: list[str]) -> None:
                 f.write("\n\n")
 
     # 最終的な成功メッセージのみを表示
-    print(f"✓ 完了: transcripts ディレクトリに {out_path.name} を保存しました。")
+    print(f"\n✓ 完了: transcripts ディレクトリに {out_path.name} を保存しました。")
     print(f"   処理した動画数: {len(video_data_list)}/{len(urls)}")
+    if len(video_data_list) < len(urls):
+        failed_count = len(urls) - len(video_data_list)
+        print(f"   ⚠️  {failed_count}つの動画でエラーが発生しました（上記のエラーメッセージを確認してください）")
 
 
 if __name__ == "__main__":

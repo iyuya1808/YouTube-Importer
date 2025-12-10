@@ -16,14 +16,19 @@ def _get_model():
     return _model
 
 
-def transcribe_audio(audio_path: Path) -> str:
+def transcribe_audio(audio_path: Path) -> tuple[str, str]:
     """
-    mp3音声ファイルをWhisperで文字起こししてテキストを返す。
+    mp3音声ファイルをWhisperで文字起こししてテキストと検出言語を返す。
+    
+    Returns:
+        tuple[str, str]: (文字起こしテキスト, 検出言語コード)
     """
     model = _get_model()
     # language を指定しないことで、Whisper に自動言語判定させる
     # これにより、英語など日本語以外の動画にも対応できる
     result = model.transcribe(str(audio_path), verbose=False)
-    return result.get("text", "").strip()
+    text = result.get("text", "").strip()
+    detected_language = result.get("language", "unknown")
+    return text, detected_language
 
 

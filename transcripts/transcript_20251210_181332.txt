@@ -1,0 +1,162 @@
+
+## 1. ブログ記事の生成
+以下の「【YouTubeの概要とその動画の文字起こし】」の内容に基づき、以下の「記事の仕様」を**全て厳守**して、SEOに強いブログ記事を生成してください。
+
+**重要: 以下の2つの動画の文字起こしから、1つの統合されたブログ記事を作成してください。複数の動画の内容を関連付けながら、1つのまとまった記事として構成してください。**
+
+なお、文字起こしの内容には誤認識や抜け漏れが含まれている可能性があります。そのため、必要に応じて内容を補完・要約しながら、自然で読みやすいブログ記事になるように構成してください。
+文字起こし自体の言語が日本語以外（例: 英語）であっても、最終的な記事は必ず自然な日本語で執筆してください。
+
+### 記事の仕様
+#### 1. 構成形式
+
+- **記事タイトル（h1）:** SEOを意識した魅力的なタイトルで、内容が一目で分かるものにする。
+
+- **序論:**
+    - 見出しなしで本文のみを記述。
+    - 記事の背景、問題提起、読者の興味を引く導入文、この記事で何が分かるかを明示する。
+    - **結びは必ず「ぜひ最後までご覧ください。」とする。**
+
+- **本文（h2〜h4の階層構造）:**
+    - 適切な階層構造で情報を整理する（h2 > h3 > h4）。
+    - h2を大きなトピック、h3をh2の中の小トピック、h4をさらに詳細な内容とする。
+    - h2よりもh3を多めに設置する。
+    - 記事全体が極端に長くなりそうな場合は、本文を「前半」と「後半」に分けて生成する。
+        - 最初のレスポンスでは、序論から本文の「前半」までを出力する。
+        - ユーザーから「後半も続けて」などのメッセージが送られた場合に、前半の続きとして本文の「後半」とまとめを出力する。
+
+- **まとめ（h2）:**
+    - 記事全体の要約、重要なポイントの再確認、今後の展望や読者へのメッセージを含める。
+    - **結びは必ず「最後までご覧いただき、ありがとうございます。」とする。**
+
+
+#### 2. 文章の書き方とトーン
+
+- 自然な日本語を用い、AI特有の機械的な表現を避ける。
+- 口語的な表現（例：「〜ですね」「〜でしょう」）を適度に使用し、親しみやすいトーンで読者に語りかける。
+- 適度に体言止めなどの表現も使用し、文章にリズムと変化を持たせて読みやすくする。
+- 具体例や数字を積極的に用いる。
+- 箇条書きは最小限にとどめ、基本的に文章で説明する。
+- **h2などの文字は本文中に入れない。**
+- **必ず「。」が来たら段落を変える。**
+- **文字起こしや動画概要にリンク（URL）が含まれている場合は、そのリンクをブログ記事の中に適切に記述してください。リンクは文中に自然に組み込むか、関連する箇所で明示的に紹介してください。**
+- **比較や一覧、数値データなど、表にまとめた方が読者にとってわかりやすい部分は、適度に表（テーブル）を使用して整理してください。表は見やすく、理解しやすい形式で作成してください。**
+
+
+#### 3. 避けるべき表現
+
+- 過度にフォーマルな表現
+- 機械的な列挙
+- テンプレート的な文章
+- 「〜について解説します」などの定型文の多用
+- 「非常に」「大変」「～の通り」「～でしょうか」など、AIが多用しがちな強調表現や定型的な口語表現
+
+
+---
+## 2. スラッグ提案
+上記で生成した記事の内容に基づき、SEOに有利な半角英数字のスラッグ（URLの一部）を3つ提案して、記事の末尾に追記してください。
+ただし、スラッグはあまり長くならないようにすること。
+---
+
+
+
+### 【YouTubeの概要とその動画の文字起こし】
+
+## 動画 1/2
+
+タイトル: お手頃で良いバランス！「T.Flight Hotas One」使用レビュー【MSFS 2024/ DCS】
+チャンネル: OTARU_Defense_Air_Force
+URL: https://www.youtube.com/watch?v=T0ExPDCTAI0
+長さ: 約 27 分 6 秒
+
+--- 動画概要 ---
+■スラストマスターさんから発売されている、エントリークラスのデバイス、
+「T.Flight Hotas One」の紹介動画です。
+  
+  操縦桿とスロットルが分割でき、柔軟なセッティングに対応！
+  別売りのラダーペダルも拡張可能、PCだけでなく、XBOXにも対応してる万能デバイス♪
+
+  このデバイスは、最新のMSFS2024にも対応、他のゲーム、シムにもしっかり使えちゃいます！
+  レビュー機材は、Thrustmaster 様にご提供頂きました。
+
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+
+
+■実店舗・web販売ページはこちら！👇
+　スラストマスター様公式HP： https://www.thrustmaster.com/ja-ja/resellers/
+
+　※家電量販店の店頭およびECサイトで在庫が無い場合は、
+　ブランド：Thrustmaster（スラストマスター）、EANコード：4460295でご注文可能だそうです！
+
+
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+キャラクター/音声ソフト
+《Cevio ai》#夏色花梨 & #小春六花 ＆ #花隈千冬　/ SynthesizerV
+　  https://tokyo6.tokyo/
+　  https://cevio.jp/products_cevio_ai/
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+エンブレム・書道画：風優りん乃 様
+　　　　　（HP：https://huyurinno3.wixsite.com/snowflakememory）
+
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+▶チャプター
+00:00 ご紹介
+01:20 開封
+01:53 MSFS2024での使用感
+20:37 DCSでの使用感
+
+▶X(旧：twitter)    / 　https://x.com/OTARU_D_A_F
+▶E-mail:  miothan21@gmail.com
+
+
+## 動画 2/2
+
+タイトル: The Most Affordable HOTAS for MSFS2024  (T.Flight Hotas One)
+チャンネル: Aaron Rheins
+URL: https://www.youtube.com/watch?v=WbP9w3HRhso
+長さ: 約 8 分 51 秒
+
+--- 動画概要 ---
+Link to T.Flight Hotas One Microsoft Flight Simulator Edition: https://bit.ly/4e6QiVI
+
+Join the Discord: https://discord.gg/aaronrheins
+
+Join this channel to get access to perks:
+https://www.youtube.com/channel/UCDXv3XxJ2RsaYqbGgX135Wg/join
+
+Follow me: https://linktr.ee/aaronrheins
+
+Check out NextLevelRacing: https://nextlevelracing.com/?ref=6574 (Affiliate)
+
+Use Code: AaronRheins24 for a discount!
+
+Music
+
+Music by: Bensound.com/free-music-for-videos
+License code: NYFOOCFO8EQLVU5W
+(Moonlight Coffee)
+
+Music by https://www.bensound.com/free-music-for-videos
+License code: ET03HP9XWXXGN6NS
+(Funky Suspense)
+
+Music by: https://www.bensound.com
+License code: 5BDVU9SSM8O2TENZ
+(Birth of a Hero)
+
+Music I use: https://www.bensound.com
+License code: R7VE24ELLMM1RIQE
+(psychedelic)
+
+
+#ad  #aviation #thrustmaster #msfs2024 #microsoftflightsimulator2020
+
+--- 文字起こし ---
+
+【1つ目の動画】
+
+オタル 応援非交代へようこそ今回はスラストマスターさんからTフライトホタス1 無数室2024エディションをお借りできましたので開封ソーサレビューを行いたいと思いますスラストマスターさんはレーシングデバイスやフライトシムデバイスゲームコントローラーにゲーミングオーリオなども手掛けられ世界143カ国で販売展開されているとても有名なデバイスメーカー様です日本では通販サイトだけでなくご覧のショップでも一部店舗で取り扱いがあります私たちもDCSを始めた時A点レプリカのホタスオートホックを買ってA点飛ばしてました金属性でとても質感が高く実機と同じホタス操作ができるので愛用していましたねだね今回ご紹介するデバイスはスラストマスターさんの中ではエントリーモデルで操作感とスロットルレバーがセットになっているモデルお値段は約2万円となっています最近のエンヤスでデバイスが高くなってきている中では比較的安いブルーイですねでは早速見ていきましょうどうぞこの動画でご紹介する機材はスラストマスター様のご提供でお送りいたしますでは外観から見ていきましょう外箱に機材があるようにPCだけでなくXBOXにも対応しています別売りのラダーペダルも拡張可能です箱から出してみましょう照明が暗くてごめんなさい上の蓋を開けて横の仕切りを開いていきます発泡スチロールでしっかりと製品がコンポーサルでいます結構ぴったり入っていますので一度ひっくり返して外箱を引き上げていきます説明書とXBOXゲームパスコードのカードが入っていましたインスタント接続マニュアルですねしっかり読んでおきましょうデバイスのドライバーインストールガイドも入っています後でドライバーダウンロードの説明も行います二分割されている発泡ケースを外すとコントローラーが出てきます製品版はビニールに包まれて発泡ケースに収まっています草重感とスロットルコンパクトに収まってますねこの製品は草重感とスロットルのベースを連結したり話して使ったりできます持った感じは重すぎず軽すぎずな感じで全体的にプラスチッキーです無数数のロゴも入っていますねこちらはPCやXBOXに接続するUSB端子です草重感は人間工学的なデザインでとても手の収まりがいいと感じました軸の動きもスムーズです裏面には草重感のテンションを調整するダイヤルがありますスロットル裏面は左右をつなぐコードを巻きつけるところがあります最初は少し巻いてあります最大まで伸ばしてみると結構話して設置させることができそうですではスロットルベースと草重感を連結してみましょう余分な部分を巻き取っておきます合体させるには草重感側の引っ掛けをスロットル側のくぼみにはめ込みます合体させることでコンパクトになりますのでうちの編集机みたいに狭いスペースでも設置可能です若干スロットルが動いていますが裏面の配線をしっかりと中に入れておかないと少し浮いてしまいます一度合わせた状態でひっくり返し配線を押し込んだほうがうまくいきましたピッタリ配線を合わせるとガタつきはなくなりましたではスロットルと草重感の操作性を見ていきましょう草重感の操作性ですがセンター付近と外側付近の領域で重さが少し変わる感じですセンター付近は指でつまんでもスーッと動きますので微調整がやりやすい領域ですこの辺りで少し重くなりますそろそろ操作軸の限界が来ていることが感覚でわかります左右にひねりの軸もあります次はスロットル軸です操作感は軽くてスムーズですセンターにひっかかりがあり50%位置が感覚でわかります無数数であればボタンや機体側の軸設定で約分射軸に切り替えたりしてみるのもいいかなと思います次は草重感のボタンを見ていきましょう一番左上は端方向のハットスイッチになっていますレフォだと視点移動キーになっていますトリムなどに設定してもいいでしょうセンターとその右側には押し込みボタンが2個あります側面には人差し指で操作するボタンが付いています小指に当たる部分にノーズステアリングスイッチがないのが少し残念ですトリガーは1段階、ストロークは少なめですベース側には押し込むボタンが3つ付いています次にスロットルのボタンです親指側の側面に4つの押し込みボタンが付いています全面にも大きさの違う2つのボタンがあり触った感覚でわかるようになっていますその横には軸タイプのレバーが付いています私はひねりラダーになれていないのでこちらにラダー軸を割り当てた方がしっくりきましたあとはベース側に3つの押し込みボタンが付いていますではデバイスをPCに接続してドライバーをインストールしフライトしてみましょう説明書に接続方法とドライバーのインストール方法が記載してあります上がXBOX、下がPCの接続手順になっています創授感の側面にPCかXBOXかを切り替えるスイッチが付いています接続するハードに切り替えて接続してくださいその左側には別売りのラダーペダルを接続するコネクタがあります創授感側のUSBケーブルをPCに接続します長さは2メートルくらいです一旦置いておいてドライバーをインストールしてみます説明書にもURLが記載してありますスラストマスターさん公式サポートページから製品を選択しドライバーをインストールしてくださいドライバーをインストールしたらUSBをPCに接続していきますUSBタイプAです私はPC全面のハブにさしました接続するとXBOXボタン上のランプが点灯します最初は無数不足2024で使ってみましょうポン付けした状態でのキー設定を見てみましょう左側のデバイスリストにPCにつながっているデバイスの一覧がありますのでそこから選択しますフィルターから割り当て済みを相当してみます操縦に必要な操作軸ボタンはフリセットで割り当て済みですポン付けでもすぐに遊べるようになっていましたのでとてもありがたいですもちろん自分好みのボタンに変更も可能ですでは何も設定を維持っていない状態で無数不足2024のデフォ機体ヘアバスA330をオートパイロットなしで着陸させてみます右線回しながら効果ベースレックで左線回箱立て空港にアプローチしていきます今日は雲が低く視界が悪いのでケーキを頼りにアプローチしていきます本来であればオートパイロットは切りたくない状況ですこのようにアプローチを採用することができますこのようにアプローチを採用することができます掃除管のハッドスイッチで視点移動しています離すとセンターに戻りますマウスで画面内掃除管のオートパイロット解除ボタンをクリックしますオートパイロットオフマニュアル掃除に切り替えましたスロットルを少し落とし速度を落としながら効果しますそろそろ右線回を入れていきますセンター付近は操作が軽めなので微調整しやすいですスロットルを少し落としながら掃除管をクリックしますそろそろロールアウト期待を水平に戻します左線回を開始するターニングポイント地点の高度は6000フィートなのであと2000フィートくらい下げていきますライト関連の設定をしていたらコースからずれてしまいました速度も少し早いですねスポイラーを展開して速度を落としたいと思いますBを押しながらスロットル裏面のB3同時押しでスポイラーを展開できるはずなのですが上手くなってしまうのでスポイラーを展開することができることができるスポイラーを展開できるはずなのですが上手く上がりませんスポイラーレバーがディスアームドになって固定されていましたマウスでアームドに入れると先ほどのボタンで展開できますまたコースから外れてしまいました中性しながら左線階ベースレックに入りますスポイラーを確認し速度が落ちすぎないようにしていきますスロットルを少し上げ速度を調整していきますスポイラーを確認し速度を調整していきますスポイラーを確認し速度を調整していきますディスプレイ表示範囲を拡大、ファイナルに向け左線階していきますスポイラーを確認し速度を調整していきます適正高度付近にちょうど雲がありますので少し高度下げ気味にアプローチしています5000フィート付近は視界がさらに悪そうです3000フィート付近まで効果しますビスリーボタンを押してフラップ1に設定しますフラップ1を下げていきますスロットルダウン速度を落としていきますパイエルSのグライドスロープとローカライザーをセンターに捉えるように微調整していきますフラップ2を下げていきますそろそろ200ノットフラップ2をセットします全然カスソールが見えませんねあと6マイルくらいですスロットルのYキー用をしてギアダウンしますビスリーキーでフラップ3セット風も結構吹いているみたいですランディングギア展開完了残り1000フィートこの段階でカスソールが見えないと結構ドキドキですあ、オートブレーキの設定を忘れていましたミディアムにセットしますカスソールが見えてきました少しだけ操縦感を右にひねりラダーで進路を微調整します500フィートひねりラダーに慣れていないので結構ぶれてますレフォーだと敏感に反応するので軸のカーブ設定を少し緩やかにした方がいいかもです操縦感を上下左右に入力するとわずかにラダー軸も入っちゃうので難しいですね少しオーバーしちゃいますがこのまま下ろしますひねりラダー慣れていないと横風補正が難しいですねタッチダウン!やばいやばい右ラダー右ラダーこれ絶対誘導頭何本かへし落ちちゃったわね少しずつスタイルを押して操縦感にブレーキのボタンもありますがオートブレーキ入れているので使わなくても大丈夫そうですおみぐるしい着陸になってしまいましたでも何も設定をいじってない状態だったのでセッティングを詰めればさらにスムーズに飛ばせそうです続いてスーパーホーネットも飛ばしてみましょう戦闘機でガンガン動かしてみましょうフライトコントロールチェック特に設定はいじっていませんがしっかり同期してますパーキングブレーキ解除視界を調整してとフルスロットルローリンフェアボーンギアアップ気返し点に切り替えここはマウスデスを指しています前方の警告に突入してみましょうスーパーホーネットスーパーホーネットスーパーホーネットスーパーホーネットスーパーホーネットスーパーホーネットスーパーホーネットスーパーホーネットだいぶ反転して効果ポクピット視点に切り替え細かい高く修正もしっかり反応してくれますフォード下げていきますスロットルダウン ライトターン次、レストターン次は、左にターンします右に切り返しスロットルアップ 特度 上げていきますライトターンライトターン無数数のスパホ このあたりの線回率が気持ちいいです低空飛行 終了します 上昇細かい未調整や切り返しにもしっかり反応してくれて お手軽にフライトを楽しめました机の上に特に固定せずを打ただけなので ずれるかなぁって思いましたが全然ずれることなく安定してたのは とても高印象です次は、BCSでも試してみたいと思いますでは初期キー設定の割当がどうなっているのか F16で見てみましょう掃除管の8方向ハットスイッチには 視点移動が割当てられていましたトリガーやその他のボタンは初期割当はありませんでしたので オコノミのボタンに割当ててください操作軸を見ていきます軸関連はリッチ、ロール、ラダー、スロットルは 最初から割当てられていましたフライトするだけであれば 特に設定変更しなくても使いそうです割り振りはオコノミですかランディングギアエアブレーキの展開、角脳ノーズステアリングホイールスイッチ掃除管小指に当たるボタンはないので とりあえずベース側のボタンに割り当てましたあとはひねりラダーはやっぱりなれないので ラダー事故をスロットル裏面の軸に割り振り直しましたフライトコントロールチェックします操作軸設定オーケイちょっとフライトしてみましょうやっぱりラダー操作はひねり軸よりこっちの方が使いやすいですセンターアラインしていきますローリングテイクオフフルスロットルラダー軸の感度は調整した方がいいですね 結構敏感に反応しますノーズステアスイッチオフピッチアップリリクしますギアアップ操縦管の操作軸設定操作管は両向です 特に軸カーブはいじっていませんが違和感は感じませんホタス系を割りフルにはボタンが足りませんのでドッグファイトモードセレクトスイッチサイクルとウェーポンリリースターゲットマネジメントスイッチの一部トリガーセカンドの見割り振って 耐空攻撃をやってみますドッグファイトモードサイドワインダー直接招臣で撃ってみますウェーポンリリース長押しでフォックス2スプラッシュ1いろいろなボタンを組み合わせれば ホタス操作もある程度は可能と思いますまあどちらかといえば入門用のデバイスですのでもっとボタン数が欲しいって方は D1600シリーズやホタスウォートフォックViper TQSなどの本格的なデバイスをお勧めします着陸もやってみましたやはり操縦感のハットスイッチは トリムに割り当てたいところですちょっとスピードをオーバー気味ですが このまま下ろしてみます着陸時に必要な微調整も 特に問題はないと思いますタッチダウン! ちょっとハードランディングでしたねホイールブレーキも割り当て必須ですUSBケーブル1本で気軽にフライトできるし 設置場所を考えなくてもいいので とても楽ですねだねいつもはこの環境で飛んでいるので やる前には色々設定が必要ですちょっと動画用に撮影したいなぁって思っても すぐには使えないのでこういうデバイスが一つあってもいいなぁって思いますミッション作ってる時に ちょっと確認したい時とか便利そうだよねですね では最後にDCESのヘリも飛ばしてみましょうちぬうくだねひねりラダーはスロットルの軸に移しますねスロットル軸はコレクティブに割り振られてて びっくりしたねですね 軸出力は反転させておきますね反転させるとコレクティブの動きと 近くなるよねヘリは固定欲気以上に細かい微調整が 断続的に続き難しいですが思った以上に安定して飛ばせましたね右上の操作風景を見ていただくと 結構微調整しているのがわかると思います軸の動きがスムーズなので このような難易度高めの操作もやりやすいですヘリのホバリング本当神経使えますからね今回ご紹介させていただいたデバイス スラストマスターキーフライトホタスワンテントリークラスの価格体ながら フライトに必要な細かな操作ができとても気軽に使えるデバイスだと思いますメースを分割できたり ラダーペダルを拡張できたりと柔軟性に飛んだデバイスだと思いました気になった方はぜひチェックしてみてくださいでは今回の動画はここでおしまいです最後までご視聴いただきありがとうございましたバイバイ
+
+【2つ目の動画】
+
+This is the T-Flight HODIS ONE. The cheapest HODIS that you can buy on the market. But is it still worth the money? And this happens to be the Microsoft Flight Sim Edition, which makes it that much cooler. Okay, so I have unboxed our T-Flight HODIS ONE here. We have it all set up. Now, a few things. This is a sponsored video, but I will post proof receipts all around. Of all the times I've recommended this, which are very numerous. I've given away like five or six. I'll put a screenshot of my Amazon orders of these. I've bought many of these. I've given them away. I've suggested them for years. You can look at the dates years ago. And this is still the cheapest HODIS that I am aware of. Now, as you can see, I have them separated right now, our stick and our throttle. You'd also put them together and these little screws that actually connect them. So say you're playing like on your lap or, you know, somewhere where you want them close together and not taking up much space. You can do that. But for me, I prefer them being further apart. So it feels like you're actually flying a plane here. And that is what I like. So right when we plug this in, first thing you got to remember, you need a switch. It's not on the back of this. There's a switch on the back of this. This switch is between PC and Xbox because this is compatible with Xbox as well, which is super convenient. PC and Xbox, make sure to have your switch on Xbox. If not, it will not work like me. It didn't get recognized at first. But once it is in and you have the switch on the correct thing, you go to controls. It's obviously already recognized over here on the left side and most things are already bound. Well, I should say everything you need is already bound, but I went ahead and added some other binds like reverse thrust hold button and certain parking brake things. Just how I like them. You can obviously do them however you want. But like things like aileron and elevator are already going to be bound when you get in the sim, which makes it much easier. But without further ado, let's go ahead and hop on and then we can answer the question. Is the cheapest hodas still worth it? Okay. So here we are in the A321. And as you can see, our control surfaces work. I did not mess with any control surfaces. All I did, like I said, was mess with the reverse thrust and the binding of certain breaks and things in a way that I like. But you load in and you're pretty much set. Obviously change the things that you want to change. But the basic stuff is done, which helps you not waste time, especially in the new sim when you're trying to get in and just have fun. Although the servers were really messed up the first day. I will release our parking brake there. We will throttle up. And again, I did not mess with throttle. There it is. As you can see now by default. The twist of this will be rudder. I do have rudder pedals attached. So that's why I don't have that connected. But by default, this will do rudder. You can also bind the little back rocker switch on the back of the throttle to that as well. Let's rotate here. Take off. Look at that. How nice. Let's get our gear up. And here we are in the A321. Now, if you know me, you know that I am horrible at landing airliners. So with our new stick and throttle here, we're going to hope and pray that my landing is decent. We're doing a incredibly short flight just over here to Miami, which is like a two second flight. So won't be much all, but we're going to try some other, you know, more, shall I say, aggressive planes. Okay. So coming into Miami with a very aggressive approach here because like I said, are doing a very short flight. And like I also said, because I am horrible at landing airliners. And we're going to see if a stick and throttle that I have not used in a very long time, if I can do it, let's try a little bit of a slip. Very like I said, we are very high and very aggressive. Can I do a slip? A slip is you got to be, you know, relatively precise. You can see the angle of me coming in here is a little weird because of this slip, but I think I can do it. We're full left rudder right now. Very fast to make this slip a little more aggressive. As you can see, we're decreasing altitude at 3700 feet per minute, but our airspeed is also decreasing. That is what's super nice about a slip here. Here we come into Miami. Textures loading in. Look at this. Isn't it awesome? Negative 3000 feet per minute and decreasing airspeed. A nice slip is incredibly cool. We're going to have to decrease our rudder here. Did I time this absolutely perfectly? I may have. I may have asked, whoa, come back, come back, come back. Oh, okay. You know what? We're going other runway because I got a little too slow there and it did not like that, but we're going to try to make it smooth. That's what matters. 20. There's 20. Retard. Retard. Retard. 10. Smooth as possible. Come on. Retard. 5. Come on. Retard. It's calling me bad names. Oh my, that was not going to lie. Ignore my texture is not loading in. It's struggling a little bit. That was. That was pretty smooth. That was a horrible landing by me, but smooth enough. So we have decided to load into the Mike Pady. Whoa, this thing is crazy. Draco X, which is an absolutely insane bush plane. And one of the hardest things you can do in the sim. I put this in my hardest landings video is landing on helipads. And if you haven't recognized it yet, we are in Dubai, which has the exact telepad that someone actually landed on in a plane, which is kind of insane to think about. So that is what we will be trying in the Draco X. Now one thing, if I had to critique this Hodes, my biggest thing would be this cable in the middle does get in the way. That being said, it is the cheapest Hodes you can buy. But having two separate cables for Hodes is very nice because like I do with my Thrustmaster Warthog, I put the throttle over here and the stick over there when I'm done and they can be completely opposite sides of the desk and out of my way, which is incredibly convenient. Whereas this one, it doesn't quite work like that. Unfortunately. Now, if you ask people that are longtime viewers, they ask me to suggest stick and throttles all the time, which I already mentioned. I won't say names. I did buy a stick and throttle as my first one after this one. I was like, I'm going to get something a little more expensive. You know, YouTube has started to do well. I think I hit 100,000 subs or something. I bought, you know, the thing that would logically be next in line as far as price. Its quality was worse. And I was like, well, I'm not doing that. So I went back to this one for a long time before I bought my Thrustmaster Warthog, which is like more than five times the price. So that tells you anything about what I feel about this than, um, there you go. But here we go. We're coming up to the Birch Al Arab in Dubai. I know I'm absolutely not saying that correctly in any way, shape or form. We are in the Draco X again. This thing surprisingly has reverse thrust in a little bush plane, which is pretty crazy. So we're going to see what we can do here. Okay. So our Draco X here is pretty low weight. We have very little fuel in here. I'm going to try a normal ish landing first on the helipad. I don't think this is going to go well. Well, actually we do have, I keep forgetting we do have the reverse thrust on this thing, which is kind of insane. So there's obviously there is a chance. We're very close to stall speed here. Let's go idle. Come on. Okay. We got to restart. Okay. Attempt number two now landing the Draco X, but this time we're going to kind of start from the bottom, work our way up and try to stall and just land on it. Here we go. We do want idle throttle, stall. Oh, come on. Okay. So I need to be a little bit more aggressive. I think we weren't quite going slow enough and I timed it whole. Quite going slow enough and I timed it horribly. Try number two or three. Oh my goodness. I'm so bad at this that we're on try number three already. There we go. 47 knots, 46. I got to stall a little bit earlier. I think like there. Okay. We're getting better. This is my final try. We're going to get this time. I don't care what anyone says. We're getting it this time. Also, this is, um, this is with no headwind, no nothing by the way. That's another reason this has been difficult. Here we go. I told you. Oh my goodness. I told you that was the one. So is the T flight hodus one worth it for the cheapest hodus you can buy? Well, it's not the best hodus you can buy, of course, but for the price point, the feel of the stick and the throttle actually don't feel bad. Like you can feel more resistance as you get to the edge of the stick, which I really kind of enjoy. It's not a perfectly linear feel and I have absolutely no complaints about it. Now this was the first stick and throttle that I ever owned. So I am very sentimental about it. I still have one back home in Georgia at my other setup, but yeah, give it a shot. So if you want to buy one of these for yourself and match with me, go to the link in my description and pick one up right now.
