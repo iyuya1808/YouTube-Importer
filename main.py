@@ -100,8 +100,7 @@ import os
 # 例: YOUTUBE_URLS = ["https://www.youtube.com/watch?v=..."]
 # 例: YOUTUBE_URLS = ["https://www.youtube.com/watch?v=...", "https://www.youtube.com/watch?v=..."]
 YOUTUBE_URLS = [
-    "https://www.youtube.com/watch?v=T0ExPDCTAI0",
-    "https://www.youtube.com/watch?v=WbP9w3HRhso"
+    "https://www.youtube.com/watch?v=AT7muM2RpBs"
 ]  # ここに直接URLを設定してください（リスト形式）
 
 
